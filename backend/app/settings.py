@@ -8,6 +8,8 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.99.11']
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
