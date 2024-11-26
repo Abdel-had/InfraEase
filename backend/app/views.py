@@ -1,7 +1,11 @@
-from rest_framework import viewsets
-from .models import Pipeline
-from .serializers import PipelineSerializer
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
-class PipelineViewSet(viewsets.ModelViewSet):
-    queryset = Pipeline.objects.all()
-    serializer_class = PipelineSerializer
+class MonitoringView(APIView):
+    def get(self, request):
+        data = {
+            "cpu_usage": 50,
+            "memory_usage": 2.5,
+            "active_pipelines": 5,
+        }
+        return Response(data)
