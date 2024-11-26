@@ -1,3 +1,5 @@
+ROOT_URLCONF = 'app.urls'
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
