@@ -6,6 +6,7 @@ const Monitoring = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
+    // Appel API pour récupérer les données de monitoring
     axios.get('http://localhost:8000/api/monitoring/')
       .then(response => setData(response.data))
       .catch(error => console.error('Error fetching monitoring data:', error));
@@ -16,10 +17,10 @@ const Monitoring = () => {
   }
 
   const chartData = {
-    labels: ['CPU', 'Memory', 'Active Pipelines'],
+    labels: ['CPU Usage (%)', 'Memory Usage (GB)', 'Active Pipelines'],
     datasets: [
       {
-        label: 'Usage',
+        label: 'System Metrics',
         data: [data.cpu_usage, data.memory_usage, data.active_pipelines],
         backgroundColor: 'rgba(75,192,192,0.2)',
         borderColor: 'rgba(75,192,192,1)',
