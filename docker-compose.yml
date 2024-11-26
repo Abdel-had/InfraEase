@@ -1,1 +1,29 @@
+version: '3.9'
+
+services:
+  web:
+    build:
+      context: ./backend
+    container_name: infraease-backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: infraease
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: infraease-frontend
+    ports:
+      - "3000:80"
 
