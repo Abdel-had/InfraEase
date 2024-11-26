@@ -7,6 +7,7 @@ const PipelineList = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    // Appel API pour récupérer les pipelines
     axios.get('http://localhost:8000/api/pipelines/')
       .then(response => {
         setPipelines(response.data);
